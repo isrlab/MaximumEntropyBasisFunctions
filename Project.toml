@@ -1,0 +1,4 @@
+name = "MaximumEntropyBasisFunctions"
+uuid = "a801cbc7-e41d-4b81-9d8a-975ae19d1dd1"
+authors = ["Intelligent Systems Research Laboratory <raktim@tamu.edu>"]
+version = "0.1.0"
