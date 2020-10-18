@@ -1,6 +1,6 @@
 using Revise, PyPlot, LinearAlgebra, Sobol, ForwardDiff
 using MaximumEntropyBasisFunctions
-using ISRLutils
+using ISRLutils # Pkg.add("https://github.com/isrlab/ISRLutils)
 
 # # With random points
 # lb = [-1 -1]; ub = [1 1];
