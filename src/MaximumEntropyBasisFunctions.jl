@@ -5,7 +5,7 @@ export CreateMaxEntBasis, getBasisDerivative, EvaluateMaxEntBasis
 # Maximum entropy basis functions
 # ===============================
 
-using  LineSearches, Optim, NLsolve, NearestNeighbors
+using  LineSearches, Optim, NLsolve, NearestNeighbors, LinearAlgebra
 
 struct MaxEntBasis
 	x::Matrix{Real};
@@ -69,8 +69,7 @@ function EvaluateMaxEntBasis(objϕ::MaxEntBasis, x::Array{T,1})::Array{T,2} wher
 end
 
 function priorFunction(x,β)
-    # f = exp(-β*norm(x)^2);
-    f = exp(-β*x'*x);
+    f = exp(-β*norm(x)^2);
 	return f;
 end
 
