@@ -1,5 +1,7 @@
 module MaximumEntropyBasisFunctions
 
+export CreateMaxEntBasis, getBasisDerivative, EvaluateMaxEntBasis
+
 # Maximum entropy basis functions
 # ===============================
 

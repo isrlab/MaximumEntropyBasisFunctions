@@ -1,5 +1,5 @@
 using Revise, PyPlot, LinearAlgebra, Sobol, ForwardDiff, Random
-include("../src/MaxEntropyBasisFunctions.jl"); # Our code.
+using MaximumEntropyBasisFunctions
 
 nBasis = 10; nEval = 1000;
 
