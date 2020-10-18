@@ -3,3 +3,5 @@
 
  The code implements algorithm from the following paper:
  *Local maximum-entropy approximation schemes: A seamless bridge between finite elements and meshfree methods by M. Arroyo and M. Ortiz.*
+
+ 
