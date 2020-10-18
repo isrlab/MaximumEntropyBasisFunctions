@@ -69,7 +69,8 @@ function EvaluateMaxEntBasis(objϕ::MaxEntBasis, x::Array{T,1})::Array{T,2} wher
 end
 
 function priorFunction(x,β)
-	f = exp(-β*norm(x)^2);
+    # f = exp(-β*norm(x)^2);
+    f = exp(-β*x'*x);
 	return f;
 end
 
