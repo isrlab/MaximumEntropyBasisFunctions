@@ -17,7 +17,7 @@ xData = ISRLutils.GenerateNDGrid(lb,ub,nData);
 xEval = ISRLutils.GenerateNDGrid(0.99*lb,0.99*ub,nEval);
 
 # Crete me basis object
-ϕ = CreateMaxEntBasis(xData,nn=4); 
+ϕ = MaximumEntropyBasisFunctions.CreateMaxEntBasis(xData,nn=4); 
 
 # Evaluate mexent basis functions at xEval
 nBasis = size(xData,2);
@@ -26,8 +26,8 @@ Phi = zeros(nEval1,nBasis);
 derPhi = zeros(2*nEval1,nBasis);
 @time for i ∈ 1:nEval1
 	#  Phi1[i,:] = getBasis(xData,xEval[:,i]);
-	 Phi[i,:] = EvaluateMaxEntBasis(ϕ,xEval[:,i])
-	 derPhi[(2*i-1):2*i,:] = getBasisDerivative(ϕ,xEval[:,i],Phi[i,:]);
+	 Phi[i,:] = MaximumEntropyBasisFunctions.EvaluateMaxEntBasis(ϕ,xEval[:,i])
+	 derPhi[(2*i-1):2*i,:] = MaximumEntropyBasisFunctions.getBasisDerivative(ϕ,xEval[:,i],Phi[i,:]);
 end
 
 ## Plotting
