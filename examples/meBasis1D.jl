@@ -14,13 +14,13 @@ Phi = zeros(nEval,nBasis);
 derPhi = zeros(nEval,nBasis);
 m = zeros(nEval,nBasis);
 
-ϕ = CreateMaxEntBasis(xData,nn=5); 
+ϕ = MaximumEntropyBasisFunctions.CreateMaxEntBasis(xData,nn=5); 
 
 @time for i ∈ 1:nEval
-	Phi[i,:] = EvaluateMaxEntBasis(ϕ,xEval[:,i])
-	derPhi[i,:] = getBasisDerivative(ϕ,xEval[:,i],Phi[i,:]);
+	Phi[i,:] = MaximumEntropyBasisFunctions.EvaluateMaxEntBasis(ϕ,xEval[:,i])
+	derPhi[i,:] = MaximumEntropyBasisFunctions.getBasisDerivative(ϕ,xEval[:,i],Phi[i,:]);
 	for j in 1:nBasis
-		m[i,j] = priorFunction(xEval[:,i]-ϕ.x[:,j],ϕ.β);
+		m[i,j] = MaximumEntropyBasisFunctions.priorFunction(xEval[:,i]-ϕ.x[:,j],ϕ.β);
 	end
 end
 

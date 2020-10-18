@@ -1,25 +1,25 @@
 using Revise, PyPlot, LinearAlgebra, Sobol, ForwardDiff
-include("../src/MaxEntropyBasisFunctions.jl");
-include("../../isrl_utils/src/Utilities.jl");
+using MaximumEntropyBasisFunctions
+using ISRLutils
 
-lb = [-1 -1]; ub = [1 1];
-p = cornerPoints(lb,ub)
-
-s = SobolSeq(lb,ub);
-skip(s,100); 
+# # With random points
+# lb = [-1 -1]; ub = [1 1];
+# p = ISRLutils.cornerPoints(lb,ub)
+# s = SobolSeq(lb,ub);
+# skip(s,100); 
 # xData = [p' hcat([next!(s) for i = 1:30]...)];
 # xData = hcat([next!(s) for i = 1:20]...);
 
+# With uniform grid
 αMax = 3; nData = [3,3]; nEval = 50*[1,1]; 
 lb = [-1,-1]*αMax; ub = [1,1]*αMax;
-xData = UniformNDGrid(lb,ub,nData);
-xEval = UniformNDGrid(0.99*lb,0.99*ub,nEval);
+xData = ISRLutils.GenerateNDGrid(lb,ub,nData);
+xEval = ISRLutils.GenerateNDGrid(0.99*lb,0.99*ub,nEval);
 
-
-# Try new implementation of meBasis
+# Crete me basis object
 ϕ = CreateMaxEntBasis(xData,nn=4); 
 
-# Generate mexent basis functions
+# Evaluate mexent basis functions at xEval
 nBasis = size(xData,2);
 nEval1 = size(xEval,2)
 Phi = zeros(nEval1,nBasis);
