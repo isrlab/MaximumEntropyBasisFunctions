@@ -12,7 +12,7 @@ using ISRLutils # Pkg.add("https://github.com/isrlab/ISRLutils)
 # xData = hcat([next!(s) for i = 1:20]...);
 
 # With uniform grid
-αMax = 3; nData = [3,3]; nEval = 50*[1,1]; 
+αMax = 3; nData = 3*[1,1]; nEval = 50*[1,1]; 
 lb = [-1,-1]*αMax; ub = [1,1]*αMax;
 xData = ISRLutils.GenerateNDGrid(lb,ub,nData);
 xEval = ISRLutils.GenerateNDGrid(0.99*lb,0.99*ub,nEval);
@@ -31,7 +31,7 @@ derPhi = zeros(2*nEval1,nBasis);
 	 derPhi[(2*i-1):2*i,:] = MaximumEntropyBasisFunctions.getBasisDerivative(ϕ,xEval[:,i],Phi[i,:]);
 end
 
-## Plotting
+# Plotting
 nCol = 5;
 nRow = div(nBasis,nCol)+1;
 
