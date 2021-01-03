@@ -48,6 +48,7 @@ YY = reshape(xEval[2,:],nEval[1],nEval[2]);
 cmin = minimum(derPhi);
 cmax = maximum(derPhi);
 
+# Generate functions
 for i in 1:nBasis
     figure(1); subplot(nRow,nCol,i);
 	pcolor(XX,YY,reshape(Phi[:,i], nEval[1],nEval[2]),shading="auto",ec="face");
